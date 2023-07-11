@@ -120,9 +120,7 @@ home_page = "drive"
 # ---------------
 
 scheduler_events = {
-    "daily": [
-            "drive.api.files.auto_delete_from_trash"
-    ],
+    "daily": ["drive.api.files.auto_delete_from_trash"],
 }
 
 # Testing

@@ -5,6 +5,7 @@ import shutil
 import uuid
 from drive.utils.files import get_user_directory, create_user_directory, get_new_title
 
+
 class DriveEntity(NestedSet):
     nsm_parent_field = "parent_drive_entity"
     nsm_oldparent_field = "old_parent"
@@ -55,7 +56,6 @@ class DriveEntity(NestedSet):
                 )
                 child.delete(ignore_permissions=has_write_access)
             super().on_trash()
-            
 
     def after_delete(self):
         if self.document:

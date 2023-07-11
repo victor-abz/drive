@@ -180,7 +180,9 @@ def get_file_with_permissions(entity_name):
     entity_ancestors = get_ancestors_of("Drive Entity", entity)
     flag = False
     for z_entity_name in entity_ancestors:
-        result = frappe.db.exists("Drive Entity", {"name":z_entity_name,"is_active": 0})
+        result = frappe.db.exists(
+            "Drive Entity", {"name": z_entity_name, "is_active": 0}
+        )
         if result:
             flag = True
             break

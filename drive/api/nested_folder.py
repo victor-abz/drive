@@ -15,14 +15,12 @@ from drive.locks.distributed_lock import DistributedLock
 from datetime import date, timedelta
 
 
-
 @frappe.whitelist()
 def get_children_count(drive_entity):
     children_count = frappe.db.count(
         "Drive Entity", {"parent_drive_entity": drive_entity}
     )
     return children_count
-
 
 
 @frappe.whitelist()
@@ -59,12 +57,14 @@ def folder_contents(entity_name=None, order_by="modified", is_active=1):
     entity_ancestors = get_ancestors_of("Drive Entity", entity_name)
     flag = False
     for z_entity_name in entity_ancestors:
-        result = frappe.db.exists("Drive Entity", {"name":z_entity_name,"is_active": 0})
+        result = frappe.db.exists(
+            "Drive Entity", {"name": z_entity_name, "is_active": 0}
+        )
         if result:
             flag = True
             break
     if flag == True:
-        frappe.throw("Parent Folder has been deleted")                     
+        frappe.throw("Parent Folder has been deleted")
     DriveEntity = frappe.qb.DocType("Drive Entity")
     DriveFavourite = frappe.qb.DocType("Drive Favourite")
     DocShare = frappe.qb.DocType("DocShare")

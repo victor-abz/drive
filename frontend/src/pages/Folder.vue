@@ -401,19 +401,19 @@ export default {
             );
           },
         },
-        {
-          label: "Move to Trash",
-          icon: "trash-2",
-          handler: () => {
-            this.showRemoveDialog = true;
-          },
-          isEnabled: () => {
-            return (
-              this.selectedEntities.length > 0 &&
-              this.selectedEntities.every((x) => x.owner === "me")
-            );
-          },
-        },
+        // {
+        //   label: "Move to Trash",
+        //   icon: "trash-2",
+        //   handler: () => {
+        //     this.showRemoveDialog = true;
+        //   },
+        //   isEnabled: () => {
+        //     return (
+        //       this.selectedEntities.length > 0 &&
+        //       this.selectedEntities.every((x) => x.owner === "me")
+        //     );
+        //   },
+        // },
       ].filter((item) => item.isEnabled());
     },
     columnHeaders() {

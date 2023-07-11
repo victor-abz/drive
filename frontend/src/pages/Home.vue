@@ -354,16 +354,16 @@ export default {
             );
           },
         },
-        {
-          label: "Move to Trash",
-          icon: "trash-2",
-          handler: () => {
-            this.showRemoveDialog = true;
-          },
-          isEnabled: () => {
-            return this.selectedEntities.length > 0;
-          },
-        },
+        // {
+        //   label: "Move to Trash",
+        //   icon: "trash-2",
+        //   handler: () => {
+        //     this.showRemoveDialog = true;
+        //   },
+        //   isEnabled: () => {
+        //     return this.selectedEntities.length > 0;
+        //   },
+        // },
       ].filter((item) => item.isEnabled());
     },
     columnHeaders() {
